@@ -25,7 +25,17 @@ def roll_a_dice(player_number) #function to roll a dice - universal for each pla
 end
 
 def main()
-  puts "Roll your dice three times"
+  puts "How many rolls per player?"
+  while true do
+    max_rounds = gets.chomp.to_i
+    if max_rounds > 0 then
+      break
+    else
+      puts "Type a valid number [1+]"
+    end
+  end
+
+  puts "Roll your dice #{max_rounds} time#{max_rounds > 1 ? "s" : ""}"
   puts "*** Click enter to roll ***"
   puts
 
@@ -33,7 +43,7 @@ def main()
   player2_counter = 0
   rounds_counter = 1
 
-  while rounds_counter <= 3 do
+  while rounds_counter <= max_rounds do
     puts "-------------------------- Round #{rounds_counter} --------------------------"
     player1_counter += roll_a_dice(1) #works for player 1  [when we call roll_a_dice for player 1, we get player's 1 score from function roll_a_dice]
     player2_counter += roll_a_dice(2) #works for player 2
@@ -43,7 +53,7 @@ def main()
     puts "** Player 2 has #{player2_counter} points **"
     puts
 
-    unless rounds_counter == 3 then
+    unless rounds_counter == max_rounds then
       if player1_counter > player2_counter then
         puts "PLAYER 1 IS WINNING"
       elsif player1_counter < player2_counter then
@@ -67,7 +77,7 @@ end
 
 puts "Welcome to the Dice Game - the bigger number wins!" #the code above is just definitions to use for the computer if referenced. This is the first line to execute.
 
-while true do  #This is the second line to execute
+while true do  #This is the second line to execute (infinite loop :O)
   main() #main is a one game with 3 rolls. This is the third line to execute
   puts "If you want to play one more time, press Y and enter"
 
@@ -76,6 +86,7 @@ while true do  #This is the second line to execute
   if input == "Y" || input == "y" || input == "yes" then
     puts "!!! Let's do it !!!"
   else
+    puts "gg no-re k lol coward"
     exit(0)
   end
 end
