@@ -44,7 +44,9 @@ def main()
 
   while rounds_counter <= max_rounds do
     puts "-------------------------- Round #{rounds_counter} --------------------------"
+    gets
     player1_counter += roll_a_dice(1) #works for player 1  [when we call roll_a_dice for player 1, we get player's 1 score from function roll_a_dice]
+    gets
     player2_counter += roll_a_dice(2) #works for player 2
 
     puts
