@@ -15,8 +15,7 @@ def get_dice_symbol(value)
   end
 end
 
-def roll_a_dice(player_number) #function to roll a dice - universal for each player /// player_number is a variable
-  gets #requires player to click enter
+def roll_a_dice(player_number) #function to roll a dice - universal for each player ///
   puts "...rolling a dice..."
   sleep(0.5)
   player_roll = rand(6)+1
@@ -26,7 +25,7 @@ end
 
 def main()
   puts "How many rolls per player?"
-  while true do
+  while true do #we make an infinite loop cause we want the user to type a valid statement.
     max_rounds = gets.chomp.to_i
     if max_rounds > 0 then
       break
@@ -78,7 +77,7 @@ end
 puts "Welcome to the Dice Game - the bigger number wins!" #the code above is just definitions to use for the computer if referenced. This is the first line to execute.
 
 while true do  #This is the second line to execute (infinite loop :O)
-  main() #main is a one game with 3 rolls. This is the third line to execute
+  main() #main is a one game with n rolls. This is the third line to execute
   puts "If you want to play one more time, press Y and enter"
 
   input = gets.chomp
