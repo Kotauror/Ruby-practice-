@@ -1,17 +1,17 @@
 def get_dice_symbol(value)
   case(value)
   when 1
-    "  ;-("
+    ";-("
   when 2
-    "  :-("
+    ":-("
   when 3
-    "  :-|"
+    ":-|"
   when 4
-    "  :->"
+    ":->"
   when 5
-    "  :-)"
+    ":-)"
   when 6
-    "  :-D"
+    ":-D"
   end
 end
 
@@ -20,12 +20,11 @@ def roll_a_dice(player_number) #function to roll a dice - universal for each pla
   puts "...rolling a dice..."
   sleep(0.5)
   player_roll = rand(6)+1
-  puts "Player #{player_number} rolled #{player_roll}#{get_dice_symbol(player_roll)}"
+  puts "Player #{player_number} rolled #{player_roll}  #{get_dice_symbol(player_roll)}"
   return player_roll
 end
 
 def main()
-  puts "Welcome to the Dice Game - the bigger number wins!"
   puts "Roll your dice three times"
   puts "*** Click enter to roll ***"
   puts
@@ -63,6 +62,20 @@ def main()
   else
     puts "--------> We have a draw. Everybody is losing. Life is a miserable lie."
   end
+
 end
 
-main()
+puts "Welcome to the Dice Game - the bigger number wins!" #the code above is just definitions to use for the computer if referenced. This is the first line to execute.
+
+while true do  #This is the second line to execute
+  main() #main is a one game with 3 rolls. This is the third line to execute
+  puts "If you want to play one more time, press Y and enter"
+
+  input = gets.chomp
+
+  if input == "Y" || input == "y" || input == "yes" then
+    puts "!!! Let's do it !!!"
+  else
+    exit(0)
+  end
+end
