@@ -32,6 +32,11 @@ class Dogo
     end
   end
 
+  def color
+    colors = ["brown", "black", "yellow", "red"]
+    puts colors[rand(4)]
+  end
+
 end
 
 puts "Friendly dogo - hungry dogo simulator"
@@ -65,3 +70,12 @@ while true
   end
 end
 doge.how_much_food_in_belly
+dogo.color
+
+
+puts ">> What name do you want for your dogo?"
+name_choice = gets.chomp
+puts ">> How old should be your dogo?"
+age_choice = gets.chomp
+puts ">> How much food do you want your dogo to have in its belly?"
+food_choice = gets.chomp.to_f
