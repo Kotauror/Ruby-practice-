@@ -23,7 +23,8 @@ class Dogo
     if value > 0 then
       puts "#{@name} got some food - it has +#{value} more food in the belly"
     else
-      puts "#{@name} haven't had any food lately - now it has #{value} less food in the belly"
+      puts "#{@name} haven't had any food lately - so now it has #{value} less food in the belly..."
+      puts "feed your #{@name}"
     end
     if @food_in_belly < 1 then
       puts "You killed your Dogo"
@@ -39,16 +40,28 @@ name_choice = gets.chomp
 puts ">> How old should be your dogo?"
 age_choice = gets.chomp
 puts ">> How much food do you want your dogo to have in its belly?"
-sleep(1)
-puts "... yeah, creepy question..."
 food_choice = gets.chomp.to_f
 
 doge = Dogo.new(name_choice, age_choice, food_choice)
 
 
 doge.say_hi
+puts "--------------"
 doge.puts_age
+puts "--------------"
 doge.how_much_food_in_belly
-sleep(3)
+puts "--------------"
 doge.change_feed_dogo(-2)
+puts "Do you want to feed your dogo?"
+puts "Type number of dog sticks you want to give your dogo"
+decision_on_food = gets.chomp
+while true
+  if decision_on_food.count("a-zA-Z!@#$%^&*()_+") > 0 then
+    puts "Put a number"
+    decision_on_food = gets.chomp
+  else
+    doge.change_feed_dogo(decision_on_food.to_i)
+    break
+  end
+end
 doge.how_much_food_in_belly
