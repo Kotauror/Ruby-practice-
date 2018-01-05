@@ -4,7 +4,10 @@ class Airport
   end
 
   def puts_hangar
-    puts "There are following planes in the hangar: #{@hangar}"
+    puts "There are following planes in the hangar: "
+     @hangar.each{ |plane|
+      puts "* #{plane.name_plane}"
+    }
   end
 
   def land(plane)
