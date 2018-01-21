@@ -15,7 +15,7 @@ end
 
 # To each row (i.e. array) put a new cell (i.e. element) at the end - the average money spent
 
-customers_array = CSV.read('customers.csv')
+customers_array = CSV.read('customers.csv') # CSV.read makes array
 customers_array.each do |customer|
   customer << average_money_spent[0]
   average_money_spent.delete_at(0)
@@ -23,7 +23,7 @@ end
 
 # Put the new array to the csv file
 
-CSV.open('customers.csv', 'w') do |file|
+CSV.open('customers.csv', 'w') do |file| # w overwrites file, a appends 
   customers_array.each do |row_array|
     file << row_array
   end
