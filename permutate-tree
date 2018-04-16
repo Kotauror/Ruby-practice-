@@ -1,0 +1,57 @@
+# /*
+# You have a dictionary, where keys are digits, and values are lists of characters.
+# Write a function that will print out all the possible permutations of the characters
+# for the given input number.
+#
+# e.g. Dictionary:
+{
+  "1" => ["A", "B"]
+  "2" => ["D", "E"]
+  "3" => ["F", "G"]
+}
+#
+# for an input "123" should result in:
+#
+# ADF
+# ADG
+# AEF
+# AEG
+# BDF
+# BDG
+# BEF
+# BEG
+#
+# */
+
+dictionary = {
+  "1" => ["A", "B"]
+  "2" => ["D", "E"]
+  "3" => ["F", "G"]
+}
+
+def permutate(number, dictionary, string = "")
+  if number == '' then
+    p string
+    return
+  end
+  firstNumber = number[0]
+  number[0] = ""
+  listOfLetters = dictionary[firstNumber]
+  listOfLetters.each { |letter|
+    permutate(number, dictionary, string + letter)
+  }
+end
+
+
+def permutate(number, dictionary, string = "", arrayOfThings = [])
+  if number == '' then
+    arrayOfThings.push(string)
+    return
+  end
+  firstNumber = number[0]
+  number[0] = ""
+  listOfLetters = dictionary[firstNumber]
+  listOfLetters.each { |letter|
+    permutate(number, dictionary, string + letter, arrayOfThings)
+  }
+end
